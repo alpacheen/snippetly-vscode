@@ -1,0 +1,56 @@
+{
+  "name": "snippetly",
+  "displayName": "Snippetly",
+  "description": "Save and search code snippets with AI",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "snippetly.saveSnippet",
+        "title": "Snippetly: Save Selected Code"
+      },
+      {
+        "command": "snippetly.searchSnippets",
+        "title": "Snippetly: Search Snippets"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "snippetly.saveSnippet",
+        "key": "ctrl+shift+s",
+        "mac": "cmd+shift+s",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "snippetly.saveSnippet",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.102.0",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "typescript": "^4.9.3"
+  }
+}
